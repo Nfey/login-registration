@@ -1,0 +1,31 @@
+<h1>Register</h1>
+<p>Already a member? Please <a [routerLink]="['/login']">log in</a> instead.</p>
+<div class="row">
+    <form class="col-sm-6" (submit)="register()">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input class="form-control" type="text" name="lastName" [(ngModel)]="user.lastName">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" type="email" name="email" [(ngModel)]="user.email">
+        </div>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" name="username" [(ngModel)]="user.username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="text" name="password" [(ngModel)]="user.password">
+        </div>
+        <div class="form-group">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input class="form-control" type="text" name="passwordConfirm" [(ngModel)]="user.passwordConfirmation">
+        </div>
+        <input class="btn btn-primary" role="button" type="submit" value="Submit">
+    </form>
+</div>
