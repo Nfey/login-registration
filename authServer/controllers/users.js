@@ -31,7 +31,7 @@ module.exports = {
                             console.log(error);
                         });
                 })
-                .catch(e => res.json(e))
+                .catch(e => res.status(422).json(e))
         }
         else{
             res.sendStatus(422);
