@@ -17,13 +17,25 @@ function generateRefreshToken(user) {
 }
 module.exports = {
     register: (req, res) => {
-        const userBlueprint = { firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username };
-        User.create(userBlueprint)
-            .then(user => {
-                user.setPassword(req.body.password);
-                res.json(user);
-            })
-            .catch(e => res.json(e))
+        if(req.body.password.length >= 6){
+            const userBlueprint = { firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username };
+            User.create(userBlueprint)
+                .then(user => {
+                    user.hashPassword(req.body.password)
+                        .then(hashed_password => {
+                            user.passwordHash = hashed_password;
+                            user.save();
+                            res.json(user)
+                        })
+                        .catch(error => {
+                            console.log(error);
+                        });
+                })
+                .catch(e => res.json(e))
+        }
+        else{
+            res.sendStatus(422);
+        }
     },
     login: (req, res) => {
         User.findOne({ email: req.body.email })

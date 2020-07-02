@@ -11,26 +11,21 @@ var UserSchema = new mongoose.Schema({
     email: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        minlength: 7
     },
     username: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        minlength: 2
     },
     passwordHash: {
         type: String,
     }
 });
-UserSchema.methods.setPassword = function (password) {
-    bcrypt.hash(password, 10)
-        .then(hashed_password => {
-            this.passwordHash = hashed_password;
-            this.save();
-        })
-        .catch(error => {
-            console.log(error);
-        });
+UserSchema.methods.hashPassword = function (password) {
+    return bcrypt.hash(password, 10)
 };
 UserSchema.methods.validatePassword = function (password) {
     return bcrypt.compare(password, this.passwordHash);
