@@ -17,14 +17,23 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this._auth.register(this.user).subscribe(user => {
-      console.log(user);
-      this._auth.login(user['email'], this.user['password']).subscribe(res => {
+    if(this.user.password == this.user.passwordConfirmation){
+      this._auth.register(this.user).subscribe(user => {
+        console.log(user);
+        console.log(user['email'], this.user['password']);
+        this._auth.login(user['email'], this.user['password']).subscribe(res => {
+          this._router.navigate(['/']);
+        }, err => {
+          console.log(err);
+        });
+      }, err => {
+        console.log(err);
       });
-      this._router.navigate(['/']);
-    }, err => {
-      console.log(err);
-    });
+    }
+    else{
+      console.log('passwords did not match')
+    }
+    
   }
 
 }

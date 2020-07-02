@@ -1,0 +1,6 @@
+.ng-untouched .firstNameErrors { display: none;}
+.ng-untouched .lastNameErrors { display: none;}
+.ng-untouched .emailErrors { display: none;}
+.ng-untouched .usernameErrors { display: none;}
+.ng-untouched .passwordErrors { display: none;}
+.ng-untouched .passwordConfirmationErrors { display: none;}
