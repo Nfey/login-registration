@@ -1169,7 +1169,7 @@ function RegisterComponent_div_22_p_1_Template(rf, ctx) { if (rf & 1) {
 } }
 function RegisterComponent_div_22_p_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p", 31);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Email must be at least 2 characters long");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Email must be at least 5 characters long");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 function RegisterComponent_div_22_Template(rf, ctx) { if (rf & 1) {
@@ -1283,7 +1283,7 @@ class RegisterComponent {
     }
 }
 RegisterComponent.ɵfac = function RegisterComponent_Factory(t) { return new (t || RegisterComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
-RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 46, vars: 14, consts: [[3, "routerLink"], [1, "row"], [1, "col-sm-6", 3, "submit"], [1, "form-group"], ["class", "firstNameErrors", 4, "ngIf"], ["for", "firstName"], ["type", "text", "name", "firstName", "minlength", "2", 1, "form-control", 3, "ngModel", "ngModelChange"], ["firstName", "ngModel"], ["class", "lastNameErrors", 4, "ngIf"], ["for", "lastName"], ["type", "text", "name", "lastName", "minlength", "2", 1, "form-control", 3, "ngModel", "ngModelChange"], ["lastName", "ngModel"], ["class", "emailErrors", 4, "ngIf"], ["for", "email"], ["type", "email", "name", "email", "minlength", "7", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["email", "ngModel"], ["class", "usernameErrors", 4, "ngIf"], ["for", "username"], ["type", "text", "name", "username", "minlength", "2", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["username", "ngModel"], ["class", "passwordErrors", 4, "ngIf"], ["for", "password"], ["type", "text", "name", "password", "minlength", "6", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["password", "ngModel"], ["class", "passwordConfirmationErrors", 4, "ngIf"], ["for", "passwordConfirm"], ["type", "text", "name", "passwordConfirm", 1, "form-control", 3, "ngModel", "ngModelChange"], ["passwordConfirmation", "ngModel"], ["role", "button", "type", "submit", "value", "Submit", 1, "btn", "btn-primary"], [1, "firstNameErrors"], ["style", "color: red;", 4, "ngIf"], [2, "color", "red"], [1, "lastNameErrors"], [1, "emailErrors"], [1, "usernameErrors"], [1, "passwordErrors"], [1, "passwordConfirmationErrors"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
+RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegisterComponent, selectors: [["app-register"]], decls: 46, vars: 14, consts: [[3, "routerLink"], [1, "row"], [1, "col-sm-6", 3, "submit"], [1, "form-group"], ["class", "firstNameErrors", 4, "ngIf"], ["for", "firstName"], ["type", "text", "name", "firstName", "minlength", "2", 1, "form-control", 3, "ngModel", "ngModelChange"], ["firstName", "ngModel"], ["class", "lastNameErrors", 4, "ngIf"], ["for", "lastName"], ["type", "text", "name", "lastName", "minlength", "2", 1, "form-control", 3, "ngModel", "ngModelChange"], ["lastName", "ngModel"], ["class", "emailErrors", 4, "ngIf"], ["for", "email"], ["type", "email", "name", "email", "minlength", "5", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["email", "ngModel"], ["class", "usernameErrors", 4, "ngIf"], ["for", "username"], ["type", "text", "name", "username", "minlength", "2", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["username", "ngModel"], ["class", "passwordErrors", 4, "ngIf"], ["for", "password"], ["type", "text", "name", "password", "minlength", "6", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["password", "ngModel"], ["class", "passwordConfirmationErrors", 4, "ngIf"], ["for", "passwordConfirm"], ["type", "text", "name", "passwordConfirm", "required", "", 1, "form-control", 3, "ngModel", "ngModelChange"], ["passwordConfirmation", "ngModel"], ["role", "button", "type", "submit", "value", "Submit", 1, "btn", "btn-primary"], [1, "firstNameErrors"], ["style", "color: red;", 4, "ngIf"], [2, "color", "red"], [1, "lastNameErrors"], [1, "emailErrors"], [1, "usernameErrors"], [1, "passwordErrors"], [1, "passwordConfirmationErrors"]], template: function RegisterComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Register");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -1364,30 +1364,30 @@ RegisterComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("routerLink", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](13, _c0));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](6);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r1.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r1.invalid && (_r1.dirty || _r1.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.firstName);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r3.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r3.invalid && (_r3.dirty || _r3.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.lastName);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r5.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r5.invalid && (_r5.dirty || _r5.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.email);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r7.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r7.invalid && (_r7.dirty || _r7.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.username);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r9.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r9.invalid && (_r9.dirty || _r9.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.password);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r11.errors);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", _r11.invalid && (_r11.dirty || _r11.touched));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx.user.passwordConfirmation);
-    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["MinLengthValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"]], styles: [".ng-untouched[_ngcontent-%COMP%]   .firstNameErrors[_ngcontent-%COMP%] { display: none;}\n.ng-untouched[_ngcontent-%COMP%]   .lastNameErrors[_ngcontent-%COMP%] { display: none;}\n.ng-untouched[_ngcontent-%COMP%]   .emailErrors[_ngcontent-%COMP%] { display: none;}\n.ng-untouched[_ngcontent-%COMP%]   .usernameErrors[_ngcontent-%COMP%] { display: none;}\n.ng-untouched[_ngcontent-%COMP%]   .passwordErrors[_ngcontent-%COMP%] { display: none;}\n.ng-untouched[_ngcontent-%COMP%]   .passwordConfirmationErrors[_ngcontent-%COMP%] { display: none;}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcmVnaXN0ZXIvcmVnaXN0ZXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxpQ0FBaUMsYUFBYSxDQUFDO0FBQy9DLGdDQUFnQyxhQUFhLENBQUM7QUFDOUMsNkJBQTZCLGFBQWEsQ0FBQztBQUMzQyxnQ0FBZ0MsYUFBYSxDQUFDO0FBQzlDLGdDQUFnQyxhQUFhLENBQUM7QUFDOUMsNENBQTRDLGFBQWEsQ0FBQyIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubmctdW50b3VjaGVkIC5maXJzdE5hbWVFcnJvcnMgeyBkaXNwbGF5OiBub25lO31cbi5uZy11bnRvdWNoZWQgLmxhc3ROYW1lRXJyb3JzIHsgZGlzcGxheTogbm9uZTt9XG4ubmctdW50b3VjaGVkIC5lbWFpbEVycm9ycyB7IGRpc3BsYXk6IG5vbmU7fVxuLm5nLXVudG91Y2hlZCAudXNlcm5hbWVFcnJvcnMgeyBkaXNwbGF5OiBub25lO31cbi5uZy11bnRvdWNoZWQgLnBhc3N3b3JkRXJyb3JzIHsgZGlzcGxheTogbm9uZTt9XG4ubmctdW50b3VjaGVkIC5wYXNzd29yZENvbmZpcm1hdGlvbkVycm9ycyB7IGRpc3BsYXk6IG5vbmU7fSJdfQ== */"] });
+    } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgForm"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["MinLengthValidator"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["RequiredValidator"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3JlZ2lzdGVyL3JlZ2lzdGVyLmNvbXBvbmVudC5jc3MifQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](RegisterComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{

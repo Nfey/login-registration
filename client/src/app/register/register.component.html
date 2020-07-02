@@ -3,7 +3,7 @@
 <div class="row">
     <form class="col-sm-6" (submit)="register()">
         <div class="form-group">
-            <div class="firstNameErrors" *ngIf="firstName.errors">
+            <div class="firstNameErrors" *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                 <p *ngIf="firstName.errors.required" style="color: red;">First name is required.</p>
                 <p *ngIf="firstName.errors.minlength" style="color: red;">First Name must be at least 2 characters long</p>
             </div>
@@ -11,7 +11,7 @@
             <input class="form-control" type="text" name="firstName" [(ngModel)]="user.firstName" minlength="2" #firstName="ngModel">
         </div>
         <div class="form-group">
-            <div class="lastNameErrors" *ngIf="lastName.errors">
+            <div class="lastNameErrors" *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
                 <p *ngIf="lastName.errors.required" style="color: red;">Last name is required.</p>
                 <p *ngIf="lastName.errors.minlength" style="color: red;">Last Name must be at least 2 characters long</p>
             </div>
@@ -19,15 +19,15 @@
             <input class="form-control" type="text" name="lastName" [(ngModel)]="user.lastName"  minlength="2" #lastName="ngModel">
         </div>
         <div class="form-group">
-            <div class="emailErrors" *ngIf="email.errors">
+            <div class="emailErrors" *ngIf="email.invalid && (email.dirty || email.touched)">
                 <p *ngIf="email.errors.required" style="color: red;">Email is required.</p>
-                <p *ngIf="email.errors.minlength" style="color: red;">Email must be at least 2 characters long</p>
+                <p *ngIf="email.errors.minlength" style="color: red;">Email must be at least 5 characters long</p>
             </div>
             <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" [(ngModel)]="user.email" minlength="7" required #email="ngModel">
+            <input class="form-control" type="email" name="email" [(ngModel)]="user.email" minlength="5" required #email="ngModel">
         </div>
         <div class="form-group">
-            <div class="usernameErrors" *ngIf="username.errors">
+            <div class="usernameErrors" *ngIf="username.invalid && (username.dirty || username.touched)">
                 <p *ngIf="username.errors.required" style="color: red;">Username is required.</p>
                 <p *ngIf="username.errors.minlength" style="color: red;">Username must be at least 2 characters long</p>
             </div>
@@ -35,7 +35,7 @@
             <input class="form-control" type="text" name="username" [(ngModel)]="user.username" minlength="2" required #username="ngModel">
         </div>
         <div class="form-group">
-            <div class="passwordErrors" *ngIf="password.errors">
+            <div class="passwordErrors" *ngIf="password.invalid && (password.dirty || password.touched)">
                 <p *ngIf="password.errors.required" style="color: red;">Password is required.</p>
                 <p *ngIf="password.errors.minlength" style="color: red;">Password must be at least 6 characters long</p>
             </div>
@@ -43,12 +43,12 @@
             <input class="form-control" type="text" name="password" [(ngModel)]="user.password" minlength="6" required #password="ngModel">
         </div>
         <div class="form-group">
-            <div class="passwordConfirmationErrors" *ngIf="passwordConfirmation.errors">
+            <div class="passwordConfirmationErrors" *ngIf="passwordConfirmation.invalid && (passwordConfirmation.dirty || passwordConfirmation.touched)">
                 <p *ngIf="passwordConfirmation.errors.required" style="color: red;">Password Confirmation is required.</p>
                 <p *ngIf="passwordConfirmation.errors.minlength" style="color: red;">Password Confirmation must be at least 2 characters long</p>
             </div>
             <label for="passwordConfirm">Confirm Password</label>
-            <input class="form-control" type="text" name="passwordConfirm" [(ngModel)]="user.passwordConfirmation" #passwordConfirmation="ngModel">
+            <input class="form-control" type="text" name="passwordConfirm" [(ngModel)]="user.passwordConfirmation" required #passwordConfirmation="ngModel">
         </div>
         <input class="btn btn-primary" role="button" type="submit" value="Submit">
     </form>
