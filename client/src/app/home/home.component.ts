@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn = this._auth.isLoggedIn();
-    this._api.getUserWithToken().subscribe(user => this.user = user);
+    if (this.isLoggedIn){
+      this._api.getUserWithToken().subscribe(user => this.user = user);
+    }
   }
 
 }
