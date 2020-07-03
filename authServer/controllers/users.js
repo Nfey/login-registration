@@ -17,7 +17,7 @@ function generateRefreshToken(user) {
 }
 module.exports = {
     register: (req, res) => {
-        if(req.body.password.length >= 6){
+        if (req.body.password.length >= 6) {
             const userBlueprint = { firstName: req.body.firstName, lastName: req.body.lastName, email: req.body.email, username: req.body.username };
             User.create(userBlueprint)
                 .then(user => {
@@ -33,7 +33,7 @@ module.exports = {
                 })
                 .catch(e => res.status(422).json(e))
         }
-        else{
+        else {
             res.sendStatus(422);
         }
     },
