@@ -46,7 +46,6 @@ export class AuthService {
     const refreshToken = localStorage.getItem('refresh_token');
     return this._http.post('http://localhost:4000/token', { token: refreshToken })
       .pipe(tap(res => {
-        console.log('in the tap');
         localStorage.setItem('access_token', res['accessToken']);
         const expiresAt = moment(res['expiresAt'] * 1000);
         localStorage.setItem('access_token_expiration', JSON.stringify(expiresAt.valueOf()));
@@ -57,9 +56,7 @@ export class AuthService {
   private startRefreshTokenTimer() {
     const expires = this.getExpiration();
     const now = moment();
-    console.log(expires.valueOf());
-    const timeout = moment.duration(expires.valueOf()).subtract(moment.duration(now.valueOf())).subtract(moment.duration(5, 'seconds'));
-    console.log(timeout.valueOf());
+    const timeout = moment.duration(expires.valueOf()).subtract(moment.duration(now.valueOf())).subtract(moment.duration(10, 'minutes'));
     this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout.asMilliseconds());
     console.log(this.refreshTokenTimeout);
   }
