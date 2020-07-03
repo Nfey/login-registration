@@ -19,5 +19,4 @@ export class HomeComponent implements OnInit {
       this._api.getUserWithToken().subscribe(user => this.user = user);
     }
   }
-
 }
