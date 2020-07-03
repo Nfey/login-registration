@@ -8,13 +8,14 @@ import { ApiService } from '../api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  user;
   isLoggedIn: Boolean;
   exp;
   constructor(private _auth: AuthService, private _api: ApiService) { }
 
   ngOnInit() {
     this.isLoggedIn = this._auth.isLoggedIn();
-    this._api.getUsers().subscribe(users => console.log(users));
+    this._api.getUserWithToken().subscribe(user => this.user = user);
   }
 
 }

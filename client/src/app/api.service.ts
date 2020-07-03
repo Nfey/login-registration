@@ -11,5 +11,11 @@ export class ApiService {
   getUsers(){
     return this._http.get('/api/users');
   }
+  getUserById(id){
+    return this._http.get(`/api/users/${id}`);
+  }
+  getUserWithToken(){
+    return this._http.get('/api/user');
+  }
   
 }

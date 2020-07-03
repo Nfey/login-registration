@@ -343,6 +343,12 @@ class ApiService {
     getUsers() {
         return this._http.get('/api/users');
     }
+    getUserById(id) {
+        return this._http.get(`/api/users/${id}`);
+    }
+    getUserWithToken() {
+        return this._http.get('/api/user');
+    }
 }
 ApiService.ɵfac = function ApiService_Factory(t) { return new (t || ApiService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 ApiService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ApiService, factory: ApiService.ɵfac, providedIn: 'root' });
@@ -702,7 +708,6 @@ class AuthService {
         const refreshToken = localStorage.getItem('refresh_token');
         return this._http.post('http://localhost:4000/token', { token: refreshToken })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["tap"])(res => {
-            console.log('in the tap');
             localStorage.setItem('access_token', res['accessToken']);
             const expiresAt = moment__WEBPACK_IMPORTED_MODULE_1__(res['expiresAt'] * 1000);
             localStorage.setItem('access_token_expiration', JSON.stringify(expiresAt.valueOf()));
@@ -712,9 +717,7 @@ class AuthService {
     startRefreshTokenTimer() {
         const expires = this.getExpiration();
         const now = moment__WEBPACK_IMPORTED_MODULE_1__();
-        console.log(expires.valueOf());
-        const timeout = moment__WEBPACK_IMPORTED_MODULE_1__["duration"](expires.valueOf()).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](now.valueOf())).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](5, 'seconds'));
-        console.log(timeout.valueOf());
+        const timeout = moment__WEBPACK_IMPORTED_MODULE_1__["duration"](expires.valueOf()).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](now.valueOf())).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](10, 'minutes'));
         this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout.asMilliseconds());
         console.log(this.refreshTokenTimeout);
     }
@@ -834,9 +837,13 @@ function HomeComponent_div_0_Template(rf, ctx) { if (rf & 1) {
 function HomeComponent_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "h1");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, "Welcome!");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+} if (rf & 2) {
+    const ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Welcome, ", ctx_r1.user.username, "!");
 } }
 class HomeComponent {
     constructor(_auth, _api) {
@@ -845,17 +852,17 @@ class HomeComponent {
     }
     ngOnInit() {
         this.isLoggedIn = this._auth.isLoggedIn();
-        this._api.getUsers().subscribe(users => console.log(users));
+        this._api.getUserWithToken().subscribe(user => this.user = user);
     }
 }
 HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_service__WEBPACK_IMPORTED_MODULE_1__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_api_service__WEBPACK_IMPORTED_MODULE_2__["ApiService"])); };
 HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-home"]], decls: 2, vars: 2, consts: [[4, "ngIf"], [3, "routerLink"]], template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, HomeComponent_div_0_Template, 11, 4, "div", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, HomeComponent_div_1_Template, 3, 0, "div", 0);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, HomeComponent_div_1_Template, 3, 1, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.isLoggedIn);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.isLoggedIn && ctx.user);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterLinkWithHref"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuY3NzIn0= */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](HomeComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],

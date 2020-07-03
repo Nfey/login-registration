@@ -6,6 +6,16 @@ module.exports = {
             .then(users => res.json(users))
             .catch(e => res.status(422).json(e));
     },
+    getUserByParamId: (req, res) => {
+        User.findById(req.params.id)
+            .then(user => res.json(user))
+            .catch(e => res.status(422).json(e));
+    },
+    getUserByTokenId: (req, res) => {
+        User.findById(req.user._id)
+            .then(user => res.json(user))
+            .catch(e => res.status(422).json(e));
+    },
     authenticateToken: (req, res, next) => {
         const authHeader = req.headers['authorization'];
         const token = authHeader && authHeader.split(' ')[1];
