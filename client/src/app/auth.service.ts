@@ -58,7 +58,6 @@ export class AuthService {
     const now = moment();
     const timeout = moment.duration(expires.valueOf()).subtract(moment.duration(now.valueOf())).subtract(moment.duration(10, 'minutes'));
     this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout.asMilliseconds());
-    console.log(this.refreshTokenTimeout);
   }
   private stopRefreshTokenTimer(){
     clearTimeout(this.refreshTokenTimeout);

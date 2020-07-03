@@ -719,7 +719,6 @@ class AuthService {
         const now = moment__WEBPACK_IMPORTED_MODULE_1__();
         const timeout = moment__WEBPACK_IMPORTED_MODULE_1__["duration"](expires.valueOf()).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](now.valueOf())).subtract(moment__WEBPACK_IMPORTED_MODULE_1__["duration"](10, 'minutes'));
         this.refreshTokenTimeout = setTimeout(() => this.refreshToken().subscribe(), timeout.asMilliseconds());
-        console.log(this.refreshTokenTimeout);
     }
     stopRefreshTokenTimer() {
         clearTimeout(this.refreshTokenTimeout);
