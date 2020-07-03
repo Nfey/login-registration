@@ -15,6 +15,7 @@ import { ApiService } from './api.service';
 import { AuthInterceptor } from './auth.interceptor';
 import { ErrorInterceptor } from './error.interceptor';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
