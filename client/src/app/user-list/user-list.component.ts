@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-list',
@@ -8,10 +9,14 @@ import { ApiService } from '../api.service';
 })
 export class UserListComponent implements OnInit {
   users;
-  constructor(private _api: ApiService) { }
-
-  ngOnInit(): void {
+  loggedInUser;
+  constructor(private _api: ApiService, private _auth: AuthService) { }
+  ngOnInit() {
     this._api.getUsers().subscribe(users => this.users = users);
+    if (this._auth.isLoggedIn()){
+      this._api.getUserWithToken().subscribe(user => {
+        this.loggedInUser = user;
+      });
+    }
   }
-
 }

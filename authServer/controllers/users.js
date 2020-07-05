@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const RefreshToken = require('../models/refreshToken');
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const ROLES = require('../config/roles');
 function generateAccessToken(user) {
     return jwt.sign({
         _id: user._id,

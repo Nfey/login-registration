@@ -1,6 +1,6 @@
 var mongoose = require('../config/mongoose');
 var bcrypt = require('bcrypt');
-
+const ROLES = require('../config/roles');
 var UserSchema = new mongoose.Schema({
     firstName: {
         type: String,
@@ -19,6 +19,10 @@ var UserSchema = new mongoose.Schema({
         unique: true,
         required: true,
         minlength: 2
+    },
+    role: {
+        type: String,
+        default: ROLES.BASIC
     },
     passwordHash: {
         type: String,

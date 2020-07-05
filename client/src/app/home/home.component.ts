@@ -10,13 +10,14 @@ import { ApiService } from '../api.service';
 export class HomeComponent implements OnInit {
   user;
   isLoggedIn: Boolean;
-  exp;
   constructor(private _auth: AuthService, private _api: ApiService) { }
 
   ngOnInit() {
     this.isLoggedIn = this._auth.isLoggedIn();
     if (this.isLoggedIn){
-      this._api.getUserWithToken().subscribe(user => this.user = user);
+      this._api.getUserWithToken().subscribe(user => {
+        this.user = user;
+      });
     }
   }
 }
