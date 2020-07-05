@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  serverError;
   user: { email: String, password: String } = { email: "", password: "" }
   constructor(private _auth: AuthService, private _router: Router) { }
   login() {
@@ -15,7 +16,7 @@ export class LoginComponent {
       this.user = { email: "", password: "" };
       this._router.navigate(['/']);
     }, err => {
-      
+      this.serverError = "Invalid Email-Password Combination."
     });
   }
 }

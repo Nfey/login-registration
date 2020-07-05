@@ -43,7 +43,7 @@
                 <p *ngIf="password.errors.minlength" style="color: red;">Password must be at least 6 characters long</p>
             </div>
             <label for="password">Password</label>
-            <input class="form-control" type="text" name="password" [(ngModel)]="user.password" minlength="6" required #password="ngModel">
+            <input class="form-control" type="password" name="password" [(ngModel)]="user.password" minlength="6" required #password="ngModel">
         </div>
         <div class="form-group">
             <div class="passwordConfirmationErrors" *ngIf="(passwordConfirmation.invalid) && (passwordConfirmation.dirty || passwordConfirmation.touched)">
@@ -54,7 +54,7 @@
                 <p *ngIf="!passwordsMatch" style="color: red;">Passwords must match.</p>
             </div>
             <label for="passwordConfirm">Confirm Password</label>
-            <input class="form-control" type="text" name="passwordConfirm" [(ngModel)]="user.passwordConfirmation" required #passwordConfirmation="ngModel">
+            <input class="form-control" type="password" name="passwordConfirm" [(ngModel)]="user.passwordConfirmation" required #passwordConfirmation="ngModel">
         </div>
         <input *ngIf="firstName.valid && lastName.valid && email.valid && username.valid && password.valid && passwordConfirmation.valid" class="btn btn-primary" role="button" type="submit" value="Submit">
         <button *ngIf="!(firstName.valid && lastName.valid && email.valid && username.valid && password.valid && passwordConfirmation.valid)" class="btn btn-primary disabled">Submit</button>

@@ -8,10 +8,10 @@
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Role</th>
-                    <th *ngIf="loggedInUser.role == 'admin'">Actions</th>
+                    <th *ngIf="loggedInUser && loggedInUser.role == 'admin'">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="loggedInUser">
                 <tr *ngFor="let user of users">
                     <td>{{user.email}}</td>
                     <td>{{user.username}}</td>
