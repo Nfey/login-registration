@@ -12,11 +12,16 @@ export class UserListComponent implements OnInit {
   loggedInUser;
   constructor(private _api: ApiService, private _auth: AuthService) { }
   ngOnInit() {
-    this._api.getUsers().subscribe(users => this.users = users);
     if (this._auth.isLoggedIn()){
       this._api.getUserWithToken().subscribe(user => {
         this.loggedInUser = user;
+        this._api.getUsers().subscribe(users => this.users = users);
       });
     }
+  }
+  deleteUser(id){
+    this._api.deleteUser(id).subscribe(result => {
+      this._api.getUsers().subscribe(users => this.users = users);
+    });
   }
 }

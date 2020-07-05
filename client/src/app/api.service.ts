@@ -17,5 +17,8 @@ export class ApiService {
   getUserWithToken(){
     return this._http.get('/api/user');
   }
+  deleteUser(id){
+    return this._http.delete(`/api/users/${id}`);
+  }
   
 }

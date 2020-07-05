@@ -1,5 +1,6 @@
 const User = require('../models/user');
 var jwt = require('jsonwebtoken');
+const ROLES = require('../config/roles');
 module.exports = {
     getAll: (req, res) => {
         User.find()
@@ -25,5 +26,23 @@ module.exports = {
             req.user = user;
             next();
         });
+    },
+    deleteUser: (req, res) => {
+        User.findByIdAndRemove(req.params.id, { useFindAndModify: false })
+            .then(result => res.json(result))
+            .catch(e => res.status(422).json(e));
+    },
+    checkIfUserIsAdmin: (req, res, next) => {
+        User.findById(req.user._id)
+            .then(user => {
+                if (user.role == ROLES.ADMIN) {
+                    next();
+                }
+                else {
+                    return res.sendStatus(403);
+                }
+            })
+            .catch(e => res.status(422).json(e));
+        
     }
 }
